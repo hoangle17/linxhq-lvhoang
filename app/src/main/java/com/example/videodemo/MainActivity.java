@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static String API_KEY = "AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA";
 
-    String url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA";
+//    String url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL-Tg454r7GNg60Tp6OR5JNruWcEftjVvg&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sAmaxResults=10";
+    String url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL-Tg454r7GNjU8sCyNRyn-lqduFiR6xIy&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA&maxResults=8";
+
     ListView listViewVideo;
     ArrayList<VideoYoutube> arrayVideo;
     VideoAdapter adapter;
