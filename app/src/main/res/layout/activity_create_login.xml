@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_up_screen_bg"
+    android:paddingLeft="35dp"
+    android:paddingRight="35dp"
+    tools:context=".CreateLoginActivity"
+    tools:showIn="@layout/activity_create_login">
+
+    <EditText
+        android:id="@+id/newUsernameLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newSubTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:hint="Username"
+        android:textColor="#fff"
+        android:textColorHint="#999" />
+
+    <EditText
+        android:id="@+id/newPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newUsernameLogin"
+        android:layout_alignStart="@+id/newUsernameLogin"
+        android:layout_alignLeft="@+id/newUsernameLogin"
+        android:layout_alignEnd="@+id/newUsernameLogin"
+        android:layout_alignRight="@+id/newUsernameLogin"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#fff"
+        android:textColorHint="#999" />
+
+    <Button
+        android:id="@+id/CreateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newPassword"
+        android:background="#32ffffff"
+        android:text="sign up"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/newTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="Play Video"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/newSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="20dp"
+        android:text="YouTube"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
