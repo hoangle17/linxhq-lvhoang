@@ -33,13 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static String API_KEY = "AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA";
 
-    String url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA&maxResults=10";
-
+    String url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=ur6I5m2nTvk,W6NZfCO5SIk,eIrMbAQSU34,bjFvcFjJpE0,vLnPwxZdW4Y,KJgsSFOSQv0,GhQdlIFylQ8,HXV3zeQKqGY,GZvSYJDk-us&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA&maxResults=9";
     ListView listViewVideo;
     ArrayList<VideoYoutube> arrayVideo;
     VideoAdapter adapter;
     Toolbar toolbar;
-
+    ArrayList<String> listDuration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new VideoAdapter(this, R.layout.row_video, arrayVideo);
         listViewVideo.setAdapter(adapter);
         GetJsonYouTube(url);
-
         listViewVideo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -61,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     @Override
@@ -106,17 +106,19 @@ public class MainActivity extends AppCompatActivity {
                     String url = "";
                     String idVideo = "";
                     String channel = "";
+                    String duration = "";
                     for (int i = 0; i < jsonItems.length(); i++) {
                         JSONObject jsonItem = jsonItems.getJSONObject(i);
+                        idVideo = jsonItem.getString("id");
                         JSONObject jsonSnippet = jsonItem.getJSONObject("snippet");
                         title = jsonSnippet.getString("title");
                         channel = jsonSnippet.getString("channelTitle");
                         JSONObject jsonThumbnail = jsonSnippet.getJSONObject("thumbnails");
                         JSONObject jsonMedium = jsonThumbnail.getJSONObject("medium");
                         url = jsonMedium.getString("url");
-                        JSONObject jsonResourceID = jsonSnippet.getJSONObject("resourceId");
-                        idVideo = jsonResourceID.getString("videoId");
-                        arrayVideo.add(new VideoYoutube(title, url, idVideo, channel));
+                        JSONObject jsonDetails = jsonItem.getJSONObject("contentDetails");
+                        duration = jsonDetails.getString("duration");
+                        arrayVideo.add(new VideoYoutube(title, url, idVideo, channel, duration));
                     }
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {

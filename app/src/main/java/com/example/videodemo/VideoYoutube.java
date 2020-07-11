@@ -5,14 +5,7 @@ public class VideoYoutube {
     private String Thumbnail;
     private String IdVideo;
     private String Channel;
-
-
-    public VideoYoutube(String title, String thumbnail, String idVideo, String channel) {
-        this.title = title;
-        Thumbnail = thumbnail;
-        IdVideo = idVideo;
-        Channel = channel;
-    }
+    private String Duration;
 
     public String getTitle() {
         return title;
@@ -44,5 +37,21 @@ public class VideoYoutube {
 
     public void setChannel(String channel) {
         Channel = channel;
+    }
+
+    public String getDuration() {
+        return Duration;
+    }
+
+    public void setDuration(String duration) {
+        Duration = duration;
+    }
+
+    public VideoYoutube(String title, String thumbnail, String idVideo, String channel, String duration) {
+        this.title = title;
+        Thumbnail = thumbnail;
+        IdVideo = idVideo;
+        Channel = channel;
+        Duration = duration;
     }
 }

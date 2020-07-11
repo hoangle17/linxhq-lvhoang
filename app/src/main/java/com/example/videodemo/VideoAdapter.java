@@ -89,6 +89,78 @@ public class VideoAdapter extends BaseAdapter implements Filterable {
         ImageView imgThumbnail;
         TextView txtTitle;
         TextView txtChannel;
+        TextView txtTime;
+    }
+
+    public String timeHumanReadable(String youtubeTimeFormat) {
+// Gets a PThhHmmMssS time and returns a hh:mm:ss time
+
+        String
+                temp = "",
+                hour = "",
+                minute = "",
+                second = "",
+                returnString;
+
+        // Starts in position 2 to ignore P and T characters
+        for (int i = 2; i < youtubeTimeFormat.length(); ++i) {
+            // Put current char in c
+            char c = youtubeTimeFormat.charAt(i);
+
+            // Put number in temp
+            if (c >= '0' && c <= '9')
+                temp = temp + c;
+            else {
+                // Test char after number
+                switch (c) {
+                    case 'H': // Deal with hours
+                        // Puts a zero in the left if only one digit is found
+                        if (temp.length() == 1) temp = "0" + temp;
+
+                        // This is hours
+                        hour = temp;
+
+                        break;
+
+                    case 'M': // Deal with minutes
+                        // Puts a zero in the left if only one digit is found
+                        if (temp.length() == 1) temp = "0" + temp;
+
+                        // This is minutes
+                        minute = temp;
+
+                        break;
+
+                    case 'S': // Deal with seconds
+                        // Puts a zero in the left if only one digit is found
+                        if (temp.length() == 1) temp = "0" + temp;
+
+                        // This is seconds
+                        second = temp;
+
+                        break;
+
+                } // switch (c)
+
+                // Restarts temp for the eventual next number
+                temp = "";
+
+            } // else
+
+        } // for
+
+        if (hour == "" && minute == "") // Only seconds
+            returnString = second;
+        else {
+            if (hour == "") // Minutes and seconds
+                returnString = minute + ":" + second;
+            else // Hours, minutes and seconds
+                returnString = hour + ":" + minute + ":" + second;
+        }
+
+        // Returns a string in hh:mm:ss format
+        return returnString;
+
     }
 
     @Override
@@ -101,6 +173,7 @@ public class VideoAdapter extends BaseAdapter implements Filterable {
             viewHolder.txtTitle = view.findViewById(R.id.textviewTitle);
             viewHolder.imgThumbnail = (ImageView) view.findViewById(R.id.imageviewThumbnail);
             viewHolder.txtChannel = view.findViewById(R.id.textviewChannel);
+            viewHolder.txtTime = view.findViewById(R.id.textViewTime);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
@@ -108,6 +181,7 @@ public class VideoAdapter extends BaseAdapter implements Filterable {
         VideoYoutube video = videoYoutubeList.get(i);
         viewHolder.txtTitle.setText(video.getTitle());
         viewHolder.txtChannel.setText(video.getChannel());
+        viewHolder.txtTime.setText(timeHumanReadable(video.getDuration()));
         Picasso.get().load(video.getThumbnail()).into(viewHolder.imgThumbnail);
         return view;
     }
