@@ -11,8 +11,10 @@
         android:id="@+id/imageviewThumbnail"
         android:layout_width="403dp"
         android:layout_height="213dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"></ImageView>
 
     <TextView
@@ -59,11 +61,12 @@
         android:id="@+id/textViewTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
         android:background="@android:color/black"
         android:text="TextView"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageviewThumbnail"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

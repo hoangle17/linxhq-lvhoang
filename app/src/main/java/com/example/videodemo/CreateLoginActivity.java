@@ -37,7 +37,6 @@ public class CreateLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = String.valueOf(editTextCreateUserName.getText());
                 String password = String.valueOf(editTextCreatePass.getText());
-                Log.d("BB", username +"---"+ password);
                 DataService dataService = APIService.getService();
                 Call<String> callback = dataService.InsertUser(username, password);
 
