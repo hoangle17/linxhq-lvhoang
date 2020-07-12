@@ -2,5 +2,7 @@
     <string name="app_name"></string>
     <string name="facebook_app_id">1124203881299083</string>
     <string name="fb_login_protocol_scheme">fb1124203881299083</string>
+    <string name="twitterUsername">\@joeytribbiani</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
 
 </resources>

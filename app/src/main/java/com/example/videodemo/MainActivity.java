@@ -36,13 +36,6 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     public static String API_KEY = "AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA";
 
-    String url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=ur6I5m2nTvk,W6NZfCO5SIk,eIrMbAQSU34,bjFvcFjJpE0,vLnPwxZdW4Y,KJgsSFOSQv0,GhQdlIFylQ8,HXV3zeQKqGY,GZvSYJDk-us&key=AIzaSyDOkP_6oEdK1cnmtzMr2I20_sn6YhSu0sA&maxResults=9";
-    ListView listViewVideo;
-    ArrayList<VideoYoutube> arrayVideo;
-    VideoAdapter adapter;
-    Toolbar toolbar;
-    ArrayList<String> listDuration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

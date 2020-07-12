@@ -43,10 +43,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private LoginButton loginButtonFb;
-    EditText editTextUsername;
-    EditText editTextPass;
+    EditText editTextUsername, editTextPass;
+    TextView textViewSignUp;
     Button buttonSignIn;
-    TextView textViewSignUp, textViewTitle, textViewTitleBlow;
 
     CallbackManager mCallbackManager;
     String user_lastname;
@@ -67,28 +66,28 @@ public class LoginActivity extends AppCompatActivity {
         setLoginButton();
         clickSignIn();
 
-        FacebookSdk.sdkInitialize(LoginActivity.this);
-//        mAuth = FirebaseAuth.getInstance();
-        // Initialize Facebook Login button
-        mCallbackManager = CallbackManager.Factory.create();
-        loginButtonFb = findViewById(R.id.login_button);
-        loginButtonFb.setReadPermissions("email", "public_profile");
-        loginButtonFb.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                handleFacebookAccessToken(loginResult.getAccessToken());
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
+//        FacebookSdk.sdkInitialize(LoginActivity.this);
+////        mAuth = FirebaseAuth.getInstance();
+//        // Initialize Facebook Login button
+//        mCallbackManager = CallbackManager.Factory.create();
+//        loginButtonFb = findViewById(R.id.login_button);
+//        loginButtonFb.setReadPermissions("email", "public_profile");
+//        loginButtonFb.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                handleFacebookAccessToken(loginResult.getAccessToken());
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//
+//            }
+//        });
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,12 +216,9 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
     private void init() {
-        loginButtonFb = findViewById(R.id.login_button);
-        editTextUsername = findViewById(R.id.UsernameLogin);
-        editTextPass = findViewById(R.id.Password);
-        textViewTitle = findViewById(R.id.Title);
-        textViewTitleBlow = findViewById(R.id.SubTitle);
-        buttonSignIn = findViewById(R.id.LoginButton);
-        textViewSignUp = findViewById(R.id.SignInTextView);
+        editTextUsername = findViewById(R.id.txtusernamelg);
+        editTextPass = findViewById(R.id.txtpasswordlg);
+        buttonSignIn = findViewById(R.id.btnlogin);
+        textViewSignUp = findViewById(R.id.textsignup);
     }
 }

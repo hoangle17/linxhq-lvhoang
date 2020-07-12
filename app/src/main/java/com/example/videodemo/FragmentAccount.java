@@ -1,10 +1,13 @@
 package com.example.videodemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,23 +17,35 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentAccount extends Fragment {
     View view;
-    Button btnLogout;
-    public FragmentManager fragmentManager;
+    Button buttonLogin;
+    TextView textViewName, textViewUserName, textViewEmail, textViewPhone, textViewTwitter, textViewFB;
+    ImageView imageViewAccount;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_acount, container, false);
 
-        btnLogout = view.findViewById(R.id.buttonLogout);
-//        btnLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-//                fragmentTransaction1.replace(R.id., new LoginUser());
-//                fragmentTransaction1.addToBackStack(null);
-//                fragmentTransaction1.commit();
-//            }
-//        });
+        init();
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return  view;
+    }
+
+    private void init() {
+        imageViewAccount = view.findViewById(R.id.imgViewAccount);
+        buttonLogin = view.findViewById(R.id.btnLogin);
+        textViewName = view.findViewById(R.id.textViewName);
+        textViewUserName = view.findViewById(R.id.textUserName);
+        textViewEmail = view.findViewById(R.id.textViewEmail);
+        textViewPhone = view.findViewById(R.id.textViewPhone);
+        textViewTwitter = view.findViewById(R.id.textViewTwitter);
+        textViewFB = view.findViewById(R.id.textViewFb);
     }
 }

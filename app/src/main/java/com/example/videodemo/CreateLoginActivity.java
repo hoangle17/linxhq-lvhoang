@@ -19,8 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CreateLoginActivity extends AppCompatActivity {
-    EditText editTextCreateUserName, editTextCreatePass;
-    TextView textViewTitleNew, textViewNewSubTitle;
+    EditText editTextCreateUserName, editTextCreatePass, editTextEmail, editTextPhone, editTextTwitter, editTextFb;
     Button buttonSignUp;
 
     @Override
@@ -63,10 +62,12 @@ public class CreateLoginActivity extends AppCompatActivity {
     }
 
     private void init() {
-        editTextCreateUserName = findViewById(R.id.newUsernameLogin);
-        editTextCreatePass = (EditText) findViewById(R.id.newPassword);
-        textViewTitleNew = findViewById(R.id.newTitle);
-        textViewNewSubTitle = findViewById(R.id.newSubTitle);
-        buttonSignUp = findViewById(R.id.CreateButton);
+        editTextCreateUserName = findViewById(R.id.txtusername);
+        editTextCreatePass = (EditText) findViewById(R.id.txtpassword);
+        editTextEmail = findViewById(R.id.txtemail);
+        editTextPhone = findViewById(R.id.txtphone);
+        editTextTwitter = findViewById(R.id.txttwitter);
+        editTextFb = findViewById(R.id.txtfb);
+        buttonSignUp = findViewById(R.id.btnSignup);
     }
 }
